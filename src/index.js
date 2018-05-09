@@ -265,7 +265,9 @@ export default function ({types: t}) {
                             const ketPath = attr.get('name');
                             if (getMessageDescriptorKey(ketPath) === 'description') {
                                 attr.remove();
-                                return true;
+                            }
+                            if (getMessageDescriptorKey(ketPath) === 'defaultMessage') {
+                                attr.remove();
                             }
                         });
 
@@ -315,10 +317,6 @@ export default function ({types: t}) {
                         t.objectProperty(
                             t.stringLiteral('id'),
                             t.stringLiteral(descriptor.id)
-                        ),
-                        t.objectProperty(
-                            t.stringLiteral('defaultMessage'),
-                            t.stringLiteral(descriptor.defaultMessage)
                         ),
                     ]));
 

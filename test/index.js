@@ -5,7 +5,7 @@ import * as babel from 'babel-core';
 import plugin from '../src/index';
 
 function trim(str) {
-    return str.toString().replace(/^\s+|\s+$/, '');
+    return str.toString().replace(/^\s+|\s+$/, '').replace(/\\\\/gi, '/');
 }
 
 const skipTests = [
